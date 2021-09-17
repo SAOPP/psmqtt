@@ -11,8 +11,7 @@ Is written in Python and based on briliant `psutil <https://github.com/giampaolo
 ============
 Installation
 ============
-1. Native install via pip
-Just install required Python libraries using `pip <https://pip.pypa.io/en/stable/installing/>`_::
+Native install via pip, just install required Python libraries using `pip <https://pip.pypa.io/en/stable/installing/>`_::
 
    pip install -r requirements.txt
    
@@ -20,7 +19,7 @@ After you can run main file using::
 
   python psmqtt.py
 
-2. Run Docker container::
+Run Docker container::
 
    version: '2.1'
    services:
