@@ -21,6 +21,7 @@ After you can run main file using::
   python psmqtt.py
 
 2. Run Docker container::
+
    version: '2.1'
    services:
      psmqtt:
