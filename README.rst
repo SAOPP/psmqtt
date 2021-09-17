@@ -20,8 +20,8 @@ After you can run main file using::
 
   python psmqtt.py
 
-2. Run Docker container
-```version: '2.1'
+2. Run Docker container::
+version: '2.1'
 services:
   psmqtt:
     image: soulassassin85/psmqtt:latest
@@ -32,8 +32,7 @@ services:
     volumes:
       - /path/to/your/psmqtt:/opt/psmqtt/conf
       - /path/to/your/psmqtt/psmqtt.conf:/opt/psmqtt/conf/psmqtt.conf #configuration file
-    restart: unless-stopped```
-
+    restart: unless-stopped
   
 ===============================================
 General information about tasks and MQTT topics
