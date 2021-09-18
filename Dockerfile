@@ -18,7 +18,7 @@ VOLUME ["/opt/psmqtt/conf"]
 
 ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 
-COPY --chown=psmqtt ./opt/psmqtt $VIRTUAL_ENV
+COPY --chown=psmqtt . $VIRTUAL_ENV
 
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 CMD python psmqtt.py
