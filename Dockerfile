@@ -21,5 +21,5 @@ ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 FROM build as base
 COPY --from=build --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+#ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 CMD python psmqtt.py
