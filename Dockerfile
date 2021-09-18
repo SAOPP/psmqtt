@@ -1,4 +1,4 @@
-FROM python:3.9.7 as build
+FROM python:3.9.7
 
 RUN mkdir -p /opt/psmqtt
 WORKDIR /opt/psmqtt
@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 RUN useradd --create-home psmqtt
-USER appuser
+USER psmqtt
 
 VOLUME ["/opt/psmqtt/conf"]
 
