@@ -18,7 +18,9 @@ ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 # COPY --from=start --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
 # ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-CMD python psmqtt.py
+# CMD python psmqtt.py
+COPY psmqtt.py .
+CMD ["python", "psmqtt.py"]
 
 # FROM python:3.9.7
 
