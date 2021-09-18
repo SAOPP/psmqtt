@@ -1,4 +1,4 @@
-FROM python:3.9.7 AS compile-image
+FROM python:3.9.7 AS build
 #FROM python:3.7.9
 
 # based on https://github.com/pfichtner/docker-mqttwarn
@@ -43,7 +43,7 @@ ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 # finally, copy the current code (ideally we'd copy only what we need, but it
 #  is not clear what that is, yet)
 #COPY . /opt/psmqtt
-COPY --from=compile-image --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
+COPY --from=build --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
 # run process
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
