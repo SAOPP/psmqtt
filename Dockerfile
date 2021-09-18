@@ -6,6 +6,10 @@ FROM python:3.9.7 AS compile-image
 # install python libraries
 #RUN pip install -r requirements.txt
 
+RUN mkdir -p /opt/psmqtt
+WORKDIR /opt/psmqtt
+RUN mkdir -p /var/log/psmqtt
+
 ENV VIRTUAL_ENV=/opt/psmqtt
 RUN python -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
@@ -39,7 +43,7 @@ ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 # finally, copy the current code (ideally we'd copy only what we need, but it
 #  is not clear what that is, yet)
 #COPY . /opt/psmqtt
-COPY --from=compile-image --chown=psmqtt /opt/psmqtt /opt/psmqtt
+COPY --from=compile-image --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
 # run process
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
