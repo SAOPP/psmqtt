@@ -1,4 +1,4 @@
-FROM python:3.9.7 AS build
+FROM python:3.9.7 as build
 #FROM python:3.7.9
 
 # based on https://github.com/pfichtner/docker-mqttwarn
