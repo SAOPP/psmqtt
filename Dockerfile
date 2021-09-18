@@ -43,7 +43,7 @@ ENV PSMQTTCONFIG="$VIRTUAL_ENV/conf/psmqtt.conf"
 # finally, copy the current code (ideally we'd copy only what we need, but it
 #  is not clear what that is, yet)
 #COPY . /opt/psmqtt
-COPY --from=build --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
+COPY --from=my-image-name:$(date +%s) --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
 # run process
 #ENV PATH="$VIRTUAL_ENV/bin:$PATH"
