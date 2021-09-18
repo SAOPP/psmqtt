@@ -35,10 +35,10 @@ USER appuser
 #USER psmqtt
 
 # conf file from host
-VOLUME ["/opt/psmqtt/conf"]
+VOLUME ["$VIRTUAL_ENV/conf"]
 
 # set conf path
-ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
+ENV PSMQTTCONFIG="$VIRTUAL_ENV/conf/psmqtt.conf"
 
 # finally, copy the current code (ideally we'd copy only what we need, but it
 #  is not clear what that is, yet)
@@ -46,5 +46,5 @@ ENV PSMQTTCONFIG="/opt/psmqtt/conf/psmqtt.conf"
 COPY --from=build --chown=psmqtt /opt/psmqtt $VIRTUAL_ENV
 
 # run process
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+#ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 CMD python psmqtt.py
